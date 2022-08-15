@@ -1,0 +1,48 @@
+[
+	{
+		"id": 1,
+        "username": "Valeria13",
+        "firstName": "Valeria",
+        "lastName": "Agrest",
+        "email": "agrest@gmail.com",
+        "password": "123456789",
+        "phone": "375292468485",
+        "userStatus": 0
+	},
+    {
+       "id": 1,
+       "category": {
+           "id": 1,
+           "name": "cat"
+       },
+       "name": "Jackson",
+       "photoUrls": [
+           "photo1"
+       ],
+       "tags": [
+           {
+               "id": 1,
+               "name": "kind"
+           }
+       ],
+       "status": "available"
+   },
+  {
+      "id": 1,
+      "category": {
+        "id": 1,
+        "name": "cat"
+      },
+      "name": "Paul",
+      "photoUrls": [
+        "photo"
+      ],
+      "tags": [
+        {
+          "id": 1,
+          "name": "kind"
+        }
+      ],
+      "status": "available"
+   }
+]
