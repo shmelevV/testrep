@@ -1,8 +1,7 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
-import warnings
+from selenium.webdriver.chrome.service import Service
 
 from pages.Admin_page import AdminPage
 from pages.DB_Page import DataBasePage
@@ -19,15 +18,16 @@ from configs.db_parser import delete_group, delete_user, delete_auth_user_group
 
 @pytest.fixture(scope='class')
 def browser():
+    ser = Service("tests/chromedriver")
+
     chrome_options = Options()
-    chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
-    warnings.filterwarnings("ignore", category=DeprecationWarning)
-    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(),
-                              options=chrome_options)
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    driver = webdriver.Chrome(service=ser, options=chrome_options)
     driver.maximize_window()
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(5)
     yield driver
     driver.quit()
 
