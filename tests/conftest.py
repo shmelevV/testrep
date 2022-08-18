@@ -19,7 +19,6 @@ from configs.db_parser import delete_group, delete_user, delete_auth_user_group
 
 @pytest.fixture(scope='class')
 def browser():
-def browser():
     chrome_options = Options()
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--headless')
