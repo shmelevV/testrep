@@ -19,15 +19,14 @@ from configs.db_parser import delete_group, delete_user, delete_auth_user_group
 
 @pytest.fixture(scope='class')
 def browser():
-    chrome_options = Options()
+    chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
-    driver = webdriver.Chrome("/snap/bin/chromium.chromedriver", options=chrome_options)
-    driver.maximize_window()
-    driver.implicitly_wait(10)
-    yield driver
-    driver.quit()
+    browser = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
+    browser.implicitly_wait(10)
+    yield browser
+    browser.quit()
     
     
 @pytest.fixture(scope="class")
