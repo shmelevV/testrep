@@ -18,7 +18,7 @@ from configs.db_parser import delete_group, delete_user, delete_auth_user_group
 
 @pytest.fixture(scope='class')
 def browser():
-    ser = Service("tests/chromedriver")
+    ser = Service("/home/vadim/PycharmProjects/testrep-main/tests/chromedriver")
 
     chrome_options = Options()
     chrome_options.add_argument('--no-sandbox')
