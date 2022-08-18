@@ -20,17 +20,17 @@ from configs.db_parser import delete_group, delete_user, delete_auth_user_group
 @pytest.fixture(scope='class')
 def browser():
     chrome_options = Options()
-    chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--disable-infobars')
     chrome_options.add_argument('--remote-debugging-port=9222')
-    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(),
-                              options=chrome_options)
+    driver = webdriver.Chrome("/usr/local/bin/chromedriver", options=chrome_options)
     driver.maximize_window()
     driver.implicitly_wait(10)
     yield driver
     driver.quit()
+    
     
 @pytest.fixture(scope="class")
 def login_page(browser):
