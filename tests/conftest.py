@@ -24,7 +24,7 @@ def browser():
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     browser = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
-    browser.implicitly_wait(10)
+    browser.implicitly_wait(20)
     yield browser
     browser.quit()
     
