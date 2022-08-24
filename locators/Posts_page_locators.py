@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 class PostsPageLocators:
 
-    CHECKBOXES = (By.CLASS_NAME, "action-select")
+    CHECKBOXES = (By.XPATH, "/html/body/div/div[3]/div/div[1]/div/div/div/form/div[2]/table/tbody/tr[1]/td/input")
     SELECT = (By.TAG_NAME, "select")
     GO = (By.CLASS_NAME, "button")
     SURE = (By.CSS_SELECTOR, "[type='submit']")
