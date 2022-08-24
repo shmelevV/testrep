@@ -5,7 +5,7 @@ from pages.Posts_page import PostsPage
 from configs.ui_parsing import data, time, new_date, false_1, false_2, false_3
 import pytest
 import allure
-import time
+
 
 
 class TestUI:
@@ -26,7 +26,6 @@ class TestUI:
                 with allure.step('Find first pic and set new data'):
                     posts_page.set_new_date_and_time(data, time)
                     with allure.step('Delete first pic'):
-                        time.sleep(10)
                         posts_page.delete_first_pic()
                         with allure.step('Go to main page '
                                          'and collect all pics dates'):
