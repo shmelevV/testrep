@@ -13,7 +13,7 @@ class TestUI:
     @allure.story('Check first pic is deleted')
     @allure.severity(allure.severity_level.MINOR)
     @pytest.mark.ui
-    @pytest.mark.positive
+    @pytest.mark.skip
     def test_first_pic_is_deleted(self, browser):
         with allure.step('Log in with admin'):
             login_page = LoginPage(browser)
