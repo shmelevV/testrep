@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+import warnings
 from webdriver_manager.chrome import ChromeDriverManager
 
 from pages.Admin_page import AdminPage
