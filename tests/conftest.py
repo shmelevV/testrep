@@ -12,22 +12,23 @@ from pages.Main_page import MainPage
 from pages.Add_user_page import AddUserPage
 from pages.Posts_page import PostsPage
 from pages.User_page import UserPage
-
 from configs.ui_parsing import username, password, new_username, new_password
 from configs.db_parser import delete_group, delete_user, delete_auth_user_group
 
 
 @pytest.fixture(scope='class')
 def browser():
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--no-sandbox')
+    chrome_options = Options()
     chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-gpu')
-    browser = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
-    browser.implicitly_wait(30)
-    yield browser
-    browser.quit()
-    
+    warnings.filterwarnings("ignore", category=DeprecationWarning)
+    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(),
+                              options=chrome_options)
+    driver.maximize_window()
+    driver.implicitly_wait(10)
+    yield driver
+    driver.quit()
     
 @pytest.fixture(scope="class")
 def login_page(browser):
