@@ -73,7 +73,7 @@ class TestDB:
     @allure.severity(allure.severity_level.TRIVIAL)
     @pytest.mark.data_base
     @pytest.mark.smoke
-    @pytest.mark.positive
+    @pytest.mark.skip
     def test_new_user_log_in(self, log_in_new_user, db_conn):
         with allure.step('Log in with new user and get welcome block name'):
             result = log_in_new_user.get_welcome_name_text()
